@@ -20,7 +20,9 @@ namespace CdkTest
             };
             var stackProp = new StackProps { Env = enviroment };
 
-            new HelloStack(app, "Levi-HelloStack", stackProp);
+            _ = new HelloStack(app, "Levi-HelloStack", stackProp);
+
+            _ = new TestStack(app, "Levi-TestStack", stackProp);
 
             Amazon.CDK.Aspects.Of(app).Add(new HelloAspect());
 

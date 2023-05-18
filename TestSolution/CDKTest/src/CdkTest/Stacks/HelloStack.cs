@@ -1,5 +1,6 @@
 using Amazon.CDK;
 using Amazon.CDK.AWS.Logs;
+using CdkTest.NestedStacks;
 using Constructs;
 
 namespace CdkTest.Stacks
@@ -8,12 +9,14 @@ namespace CdkTest.Stacks
     {
         internal HelloStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
-            var logGroup = new LogGroup(this, "Levi-LogGroup", new LogGroupProps
+            _ = new LogGroup(this, "Levi-HelloStack-LogGroup", new LogGroupProps
             {
-                LogGroupName = "Levi-Test",
-                Retention = RetentionDays.ONE_MONTH,
+                LogGroupName = "Levi-HelloStack-LogGroup",
+                Retention = RetentionDays.ONE_DAY,
                 RemovalPolicy = RemovalPolicy.DESTROY
             });
+
+            _ = new HelloNestedStack(this);
         }
     }
 }

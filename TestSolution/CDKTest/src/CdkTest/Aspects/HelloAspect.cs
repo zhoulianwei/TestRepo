@@ -17,6 +17,11 @@ namespace CdkTest.Aspects
             {
                 Console.WriteLine($"Find a log group : {logGroup.LogGroupName}");
             }
+
+            if (node is Stack stack && !stack.Nested)
+            {
+                stack.Tags.SetTag("levi-tag", "abc123");
+            }
         }
     }
 }
