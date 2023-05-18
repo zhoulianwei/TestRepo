@@ -1,4 +1,6 @@
 ﻿using Amazon.CDK;
+using CdkTest.Aspects;
+using CdkTest.Stacks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +16,13 @@ namespace CdkTest
             var enviroment = new Amazon.CDK.Environment
             {
                 Account = "465671368404",
-                Region = "us-east-2",
+                Region = "us-east-1",
             };
             var stackProp = new StackProps { Env = enviroment };
 
-            new LeviTestStack(app, "LeviTestStack", stackProp);
+            new HelloStack(app, "Levi-HelloStack", stackProp);
+
+            Amazon.CDK.Aspects.Of(app).Add(new HelloAspect());
 
             app.Synth();
         }
