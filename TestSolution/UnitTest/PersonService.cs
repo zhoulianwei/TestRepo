@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace UnitTest
 {
-    public class PersonService : IPersionService
+    public class PersonService : IPersonService
     {
+
+        public ICommonService CommonService { get; set; }
+
+
         public Person Create(string name, int age)
         {
             return new Person() { Name = name, Age = age };
@@ -15,6 +19,7 @@ namespace UnitTest
 
         public string GetName(Person person)
         {
+            CommonService.WriteInfo();
             return person.Name;
         }
 

@@ -9,7 +9,7 @@ namespace UnitTest
     [TestFixture]
     public class PersonServiceTest
     {
-        private IPersionService PersionService { get; }
+        private IPersonService PersionService { get; }
 
         public PersonServiceTest()
         {
@@ -31,12 +31,15 @@ namespace UnitTest
             Assert.IsTrue(zhangsan.Age == 18);
         }
 
-        [Test]
-        public void Test()
+        [Test, AutoMoqData]
+        public void Test(Mock<Person> mockPerson,
+            //Mock<ICommonService> mockCommonService, 
+            PersonService sut)
         {
-            var mockPersonService = new Mock<IPersionService>();
-            var person1 = mockPersonService.Object.GetName(null); // zhangsan
-            mockPersonService.Verify(p => p.GetName(null), Times.Once);
+            //mockCommonService.Setup(m => m.WriteInfo());
+
+            var person1 = sut.GetName(mockPerson.Object);
+
             Assert.Pass();
         }
     }

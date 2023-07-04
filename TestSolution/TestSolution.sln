@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdkTest", "CDKTest\src\CdkT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisTest", "RedisTest\RedisTest.csproj", "{687E1979-F8DC-478F-A905-2323AA9A6299}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{DB6C35F3-490E-4951-87DA-ECA3FF1478C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{DB6C35F3-490E-4951-87DA-ECA3FF1478C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticBeanstalkTest", "ElasticBeanstalkTest\ElasticBeanstalkTest.csproj", "{43440E9E-2135-46B3-B0FE-0661F3394AEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DB6C35F3-490E-4951-87DA-ECA3FF1478C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB6C35F3-490E-4951-87DA-ECA3FF1478C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB6C35F3-490E-4951-87DA-ECA3FF1478C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43440E9E-2135-46B3-B0FE-0661F3394AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43440E9E-2135-46B3-B0FE-0661F3394AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43440E9E-2135-46B3-B0FE-0661F3394AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43440E9E-2135-46B3-B0FE-0661F3394AEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
