@@ -22,7 +22,7 @@ namespace CdkTest
 
             _ = new HelloStack(app, "Levi-HelloStack", stackProp);
 
-            _ = new TestStack(app, "Levi-TestStack", stackProp);
+            //_ = new TestStack(app, "Levi-TestStack", stackProp);
 
             Amazon.CDK.Aspects.Of(app).Add(new HelloAspect());
 

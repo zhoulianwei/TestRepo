@@ -14,7 +14,6 @@
     <None Include=".ebextensions\01_install-crowdstrike.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include=".ebextensions\99_install-wkhtmltopdf.config" />
   </ItemGroup>
 
 </Project>
