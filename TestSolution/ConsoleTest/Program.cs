@@ -12,6 +12,8 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
+            Bird bird= new Bird();
+            bird.Run();
 
         }
 
@@ -46,5 +48,21 @@ namespace ConsoleTest
 
             //Console.WriteLine("End");
         }
+
+        public class Animal
+        {
+            public void Run()
+            {
+                Console.WriteLine("I can run");
+            }
+        }
+        public class Bird
+        {
+            public new void Run()
+            {
+                Console.WriteLine("I can fly");
+            }
+        }
+
     }
 }
