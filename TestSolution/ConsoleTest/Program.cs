@@ -8,13 +8,22 @@ using Newtonsoft.Json;
 
 namespace ConsoleTest
 {
+
+    public class People
+    {
+        public bool? IsStudent { get; set; }
+    }
+
+
     public class Program
     {
         static void Main(string[] args)
         {
-            Bird bird= new Bird();
-            bird.Run();
+            var zhangsan = new People() { IsStudent = false };
+            Console.WriteLine(zhangsan.IsStudent ?? true);
 
+            var lisi = new People() { IsStudent = true };
+            Console.WriteLine(lisi.IsStudent ?? false);
         }
 
         public void InvokeLambda()

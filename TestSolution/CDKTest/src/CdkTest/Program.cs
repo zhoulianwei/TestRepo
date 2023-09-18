@@ -16,15 +16,13 @@ namespace CdkTest
             var enviroment = new Amazon.CDK.Environment
             {
                 Account = "465671368404",
-                Region = "us-east-1",
+                Region = "us-east-2",
             };
             var stackProp = new StackProps { Env = enviroment };
 
-            _ = new HelloStack(app, "Levi-HelloStack", stackProp);
 
-            //_ = new TestStack(app, "Levi-TestStack", stackProp);
+            _ = new TestStack(app, "Levi-TestStack", stackProp);
 
-            Amazon.CDK.Aspects.Of(app).Add(new HelloAspect());
 
             app.Synth();
         }
