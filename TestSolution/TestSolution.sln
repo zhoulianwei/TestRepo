@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticBeanstalkTest", "ElasticBeanstalkTest\ElasticBeanstalkTest.csproj", "{43440E9E-2135-46B3-B0FE-0661F3394AEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3Test", "S3Test\S3Test.csproj", "{C95249D9-BD51-4283-A7FE-19DEF9F2917A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3Test", "S3Test\S3Test.csproj", "{C95249D9-BD51-4283-A7FE-19DEF9F2917A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer-Server", "WebServer-Server\WebServer-Server.csproj", "{D330CAFF-71F0-415E-93FC-504D408E5649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer-Client", "WebServer-Client\WebServer-Client.csproj", "{2A2DBF47-E705-439E-A896-2121CBF0DE64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{C95249D9-BD51-4283-A7FE-19DEF9F2917A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C95249D9-BD51-4283-A7FE-19DEF9F2917A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C95249D9-BD51-4283-A7FE-19DEF9F2917A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D330CAFF-71F0-415E-93FC-504D408E5649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D330CAFF-71F0-415E-93FC-504D408E5649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D330CAFF-71F0-415E-93FC-504D408E5649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D330CAFF-71F0-415E-93FC-504D408E5649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2DBF47-E705-439E-A896-2121CBF0DE64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2DBF47-E705-439E-A896-2121CBF0DE64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2DBF47-E705-439E-A896-2121CBF0DE64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2DBF47-E705-439E-A896-2121CBF0DE64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
