@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using WebServer_Server.Services;
 
 namespace WebServer_Server
 {
@@ -38,6 +39,14 @@ namespace WebServer_Server
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+
+            services.AddDistributedRedisCache(options =>
+            {
+                options.Configuration = "localhost";
+                options.InstanceName = "levi-test";
+            });
+
+            services.AddTransient<CatchService>();
 
         }
 
