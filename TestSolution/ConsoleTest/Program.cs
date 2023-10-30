@@ -5,6 +5,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System.Globalization;
+using System.Resources;
+using System.Reflection;
+using ConsoleTest.Resources;
+using SendGrid.Helpers.Mail;
+using SendGrid;
 
 namespace ConsoleTest
 {
@@ -19,11 +25,47 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            var zhangsan = new People() { IsStudent = false };
-            Console.WriteLine(zhangsan.IsStudent ?? true);
+            var apiKey = "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";
+            var from = "levi.zhou@sbdinc.com";
+            var to = "levi.zhou@securitas.com";
+            var templateId = "d-c9b69d1c930a4fbba94a43f280d0d26d";
+            var props = new Dictionary<string, string>()
+                    {
+                        {"subject","levi'<>&s superadmin  subject"},
+                        {"notificationSubjectSeparator","-"},
+                        {"notificationLocationName","End"}
+                    };
 
-            var lisi = new People() { IsStudent = true };
-            Console.WriteLine(lisi.IsStudent ?? false);
+
+            var client = new SendGridClient(apiKey);
+            var msg = MailHelper.CreateSingleTemplateEmail(
+                new EmailAddress(from),
+                new EmailAddress(to),
+                templateId,
+                props);
+
+            var response = client.SendEmailAsync(msg).Result;
+            Console.WriteLine(response.StatusCode);
+        }
+
+
+        public static SendGridMessage CreateSingleTemplateEmail(EmailAddress from, EmailAddress to, string templateId, object dynamicTemplateData)
+        {
+            if (string.IsNullOrWhiteSpace(templateId))
+            {
+                throw new ArgumentException("templateId is required when creating a dynamic template email.", "templateId");
+            }
+
+            SendGridMessage sendGridMessage = new SendGridMessage();
+            sendGridMessage.SetFrom(from);
+            sendGridMessage.AddTo(to);
+            sendGridMessage.TemplateId = templateId;
+            if (dynamicTemplateData != null)
+            {
+                sendGridMessage.SetTemplateData(dynamicTemplateData);
+            }
+
+            return sendGridMessage;
         }
 
         public void InvokeLambda()

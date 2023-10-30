@@ -19,37 +19,37 @@ namespace CdkTest.Stacks
     {
         internal TestStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
-            //var suffix = 0;
-            //var keyPair = new KeyPair(this, $"KeyPair{suffix}", new KeyPairProps
-            //{
-            //    Name = $"levi-test",
-            //    ExposePublicKey = true,
-            //    StorePublicKey = true,
-            //    PublicKeyFormat = PublicKeyFormat.PEM,
-            //    ResourcePrefix = Node.Id,
-            //    SecretPrefix = "Keys/"
-            //});
-
-            //var publicKey = new PublicKey(this, $"PublicKey{suffix}", new PublicKeyProps
-            //{
-            //    EncodedKey = keyPair.PublicKeyValue
-            //});
-
-            var topic = new Topic(this, "levi-test-topic");
-            topic.AddSubscription(new EmailSubscription("levi.zhou@securitas.com"));
-
-            var rule = new ManagedRule(this, "levi-test-S3BucketLevelPublicAccessProhibited", new ManagedRuleProps
+            var suffix = 0;
+            var keyPair = new KeyPair(this, $"KeyPair{suffix}", new KeyPairProps
             {
-                Identifier = ManagedRuleIdentifiers.S3_BUCKET_LEVEL_PUBLIC_ACCESS_PROHIBITED,
-                ConfigRuleName = "levi-test-S3BucketLevelPublicAccessProhibitedRule",
-                //MaximumExecutionFrequency = MaximumExecutionFrequency.TWENTY_FOUR_HOURS, // A maximum execution frequency for this rule is not allowed because only a change in resources triggers this managed rule.
-                RuleScope = RuleScope.FromResources(new[] { ResourceType.S3_BUCKET })
+                Name = $"levi-test",
+                ExposePublicKey = true,
+                StorePublicKey = true,
+                PublicKeyFormat = PublicKeyFormat.PEM,
+                ResourcePrefix = Node.Id,
+                SecretPrefix = "Keys/"
             });
 
-            rule.OnComplianceChange("TopicEvent", new OnEventOptions
+            var publicKey = new PublicKey(this, $"PublicKey{suffix}", new PublicKeyProps
             {
-                Target = new SnsTopic(topic)
+                EncodedKey = keyPair.PublicKeyValue
             });
+
+            //var topic = new Topic(this, "levi-test-topic");
+            //topic.AddSubscription(new EmailSubscription("levi.zhou@securitas.com"));
+
+            //var rule = new ManagedRule(this, "levi-test-S3BucketLevelPublicAccessProhibited", new ManagedRuleProps
+            //{
+            //    Identifier = ManagedRuleIdentifiers.S3_BUCKET_LEVEL_PUBLIC_ACCESS_PROHIBITED,
+            //    ConfigRuleName = "levi-test-S3BucketLevelPublicAccessProhibitedRule",
+            //    //MaximumExecutionFrequency = MaximumExecutionFrequency.TWENTY_FOUR_HOURS, // A maximum execution frequency for this rule is not allowed because only a change in resources triggers this managed rule.
+            //    RuleScope = RuleScope.FromResources(new[] { ResourceType.S3_BUCKET })
+            //});
+
+            //rule.OnComplianceChange("TopicEvent", new OnEventOptions
+            //{
+            //    Target = new SnsTopic(topic)
+            //});
         }
     }
 }
