@@ -17,7 +17,6 @@ using AutoMapper;
 using AutoMapper.Internal.Mappers;
 using Newtonsoft.Json;
 
-
 namespace S3Test
 {
 

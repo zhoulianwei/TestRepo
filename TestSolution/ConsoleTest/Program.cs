@@ -11,6 +11,7 @@ using System.Reflection;
 using ConsoleTest.Resources;
 using SendGrid.Helpers.Mail;
 using SendGrid;
+using System.Net.Http;
 
 namespace ConsoleTest
 {
@@ -25,27 +26,43 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            var apiKey = "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";
-            var from = "levi.zhou@sbdinc.com";
-            var to = "levi.zhou@securitas.com";
-            var templateId = "d-c9b69d1c930a4fbba94a43f280d0d26d";
-            var props = new Dictionary<string, string>()
-                    {
-                        {"subject","levi'<>&s superadmin  subject"},
-                        {"notificationSubjectSeparator","-"},
-                        {"notificationLocationName","End"}
-                    };
+            string a = "123a";
+           var b= int.Parse(a);
+            Console.WriteLine( b.ToString());
+
+            HttpClient httpClient = new HttpClient();
+            int i = 0;
+            while (true)
+            {
+                var _ = httpClient.GetAsync("https://dev.vigilcloud.3xlogic.com/api/status").Result;
+                Console.WriteLine(i++);
+            }
 
 
-            var client = new SendGridClient(apiKey);
-            var msg = MailHelper.CreateSingleTemplateEmail(
-                new EmailAddress(from),
-                new EmailAddress(to),
-                templateId,
-                props);
 
-            var response = client.SendEmailAsync(msg).Result;
-            Console.WriteLine(response.StatusCode);
+
+
+            //var apiKey = "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";
+            //var from = "levi.zhou@sbdinc.com";
+            //var to = "levi.zhou@securitas.com";
+            //var templateId = "d-c9b69d1c930a4fbba94a43f280d0d26d";
+            //var props = new Dictionary<string, string>()
+            //        {
+            //            {"subject","levi'<>&s superadmin  subject"},
+            //            {"notificationSubjectSeparator","-"},
+            //            {"notificationLocationName","End"}
+            //        };
+
+
+            //var client = new SendGridClient(apiKey);
+            //var msg = MailHelper.CreateSingleTemplateEmail(
+            //    new EmailAddress(from),
+            //    new EmailAddress(to),
+            //    templateId,
+            //    props);
+
+            //var response = client.SendEmailAsync(msg).Result;
+            //Console.WriteLine(response.StatusCode);
         }
 
 
